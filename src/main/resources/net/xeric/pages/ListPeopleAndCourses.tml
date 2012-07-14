@@ -1,0 +1,21 @@
+<html t:type="layout" title="About jpa-demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>List People and Courses</p>
+
+
+	
+	<h3>List People:</h3>
+		<ul>
+			<li t:type="loop" t:source="allPeople" t:value="person">
+				${person.firstName} ${person.firstName} (${person.enrolledCourses.size()})
+			</li>
+		</ul>
+	<h3>List Courses:</h3>
+		<ul>
+			<li t:type="loop" t:source="allCourses" t:value="course">
+				${course.name}(${course.peopleEnrolled.size()})
+			</li>
+		</ul>
+</html>

@@ -1,0 +1,25 @@
+<html t:type="layout" title="About jpa-demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>List People and Courses</p>
+
+
+	
+	<h3>List People:</h3>
+		<ul>
+			<li t:type="loop" t:source="allPeople" t:value="person">
+				${person.firstName} ${person.firstName} (${person.enrolledCourses.size()})
+				<t:eventlink t:context="person" t:id="manage">manage classes</t:eventlink>
+			</li>
+		</ul>
+
+	<t:if test="personToUpdate">
+		Manage ${personToUpdate.firstName} Here.
+		<t:form t:id="manageClasses">
+			<t:palette t:id="classPalette" t:selected="personToUpdate.enrolledCourses" t:model="courseModel" t:encoder="courseEncoder"/>
+			<t:submit t:id="updateClasses"/>
+		</t:form>
+	</t:if>
+
+</html>
