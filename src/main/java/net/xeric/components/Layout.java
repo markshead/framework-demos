@@ -22,14 +22,6 @@ public class Layout
     @Property
     private String pageName;
 
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
     @Inject
     private ComponentResources resources;
 

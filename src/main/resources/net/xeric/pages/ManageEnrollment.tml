@@ -2,22 +2,22 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>List People and Courses</p>
+    <p>List Students and Courses</p>
 
 
 	
 	<h3>List People:</h3>
 		<ul>
-			<li t:type="loop" t:source="allPeople" t:value="person">
-				${person.firstName} ${person.firstName} (${person.enrolledCourses.size()})
-				<t:eventlink t:context="person" t:id="manage">manage classes</t:eventlink>
+			<li t:type="loop" t:source="allStudents" t:value="student">
+				${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})
+				<t:eventlink t:context="student" t:id="manage">manage classes</t:eventlink>
 			</li>
 		</ul>
 
-	<t:if test="personToUpdate">
-		Manage ${personToUpdate.firstName} Here.
+	<t:if test="studentToUpdate">
+		Manage ${studentToUpdate.firstName} Here.
 		<t:form t:id="manageClasses">
-			<t:palette t:id="classPalette" t:selected="personToUpdate.enrolledCourses" t:model="courseModel" t:encoder="courseEncoder"/>
+			<t:palette t:id="classPalette" t:selected="studentToUpdate.enrolledCourses" t:model="courseModel" t:encoder="courseEncoder"/>
 			<t:submit t:id="updateClasses"/>
 		</t:form>
 	</t:if>

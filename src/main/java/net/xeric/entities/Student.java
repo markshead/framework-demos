@@ -14,35 +14,38 @@ import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
 
 @Entity
-public class Course {
-	
+public class Student {
+	private String firstName;
+	private String lastName;
+	@ManyToMany
+	private List<Course> enrolledCourses = CollectionFactory.newList();
 	@Id
 	@NonVisual
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	private String name;
-	
-	@ManyToMany
-	private List<Student> peopleEnrolled = CollectionFactory.newList();
-	
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public List<Student> getPeopleEnrolled() {
-		return peopleEnrolled;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setPeopleEnrolled(List<Student> peopleEnrolled) {
-		this.peopleEnrolled = peopleEnrolled;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public List<Course> getEnrolledCourses() {
+		return enrolledCourses;
+	}
+	public void setEnrolledCourses(List<Course> enrolledCourses) {
+		this.enrolledCourses = enrolledCourses;
 	}
 	
 	 @Override
@@ -51,13 +54,13 @@ public class Course {
 	            return true;
 	        }
 
-	        if (other == null || !(other instanceof Course)) {
+	        if (other == null || !(other instanceof Student)) {
 	            return false;
 	        }
 
-	        Course course = (Course) other;
+	        Student student = (Student) other;
 
-	        return !(id != null ? !id.equals(course.id) : course.id != null);
+	        return !(id != null ? !id.equals(student.id) : student.id != null);
 
 	    }
 
@@ -65,5 +68,4 @@ public class Course {
 	    public int hashCode() {
 	        return id != null ? id.hashCode() : 0;
 	    }
-	
 }

@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import net.xeric.encoders.CourseEncoder;
 import net.xeric.entities.Course;
-import net.xeric.entities.Person;
+import net.xeric.entities.Student;
 
 import org.apache.tapestry5.SelectModel;
 import org.apache.tapestry5.annotations.Persist;
@@ -23,32 +23,28 @@ public class ManageEnrollment {
 	EntityManager em;
 	
 	@Property
-	Person person;
+	Student student;
 	
 	@Property
 	Course course;
 	
 	@Persist
 	@Property
-	Person personToUpdate;
+	Student studentToUpdate;
 	
 	
 	@Inject
 	SelectModelFactory selectModelFactory;
 	
-	public void onManage(Person person) {
-		personToUpdate = person;
-		if(personToUpdate.getEnrolledCourses() == null) {
-			personToUpdate.setEnrolledCourses(new ArrayList<Course>());
-		}
+	public void onManage(Student student) {
+		studentToUpdate = student;
 	}
 	
 	@CommitAfter
 	public void onSuccessFromManageClasses() {
-		System.out.println("onSuccessFromManageClasses");
-		System.out.println("Person to update: " + personToUpdate.getId());
-		em.merge(personToUpdate);
-		personToUpdate = null;
+		em.merge(studentToUpdate);
+		
+		studentToUpdate = null;
 	}
 	
 	public SelectModel getCourseModel() {
@@ -59,8 +55,8 @@ public class ManageEnrollment {
 		return new CourseEncoder(em);
 	}
 	
-	public List<Person> getAllPeople() {
-		return em.createQuery("SELECT e FROM Person e", Person.class).getResultList();
+	public List<Student> getAllStudents() {
+		return em.createQuery("SELECT e FROM Student e", Student.class).getResultList();
 	}
 	
 	public List<Course> getAllCourses() {
