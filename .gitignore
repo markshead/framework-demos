@@ -1,1 +1,6 @@
 target/
+*.jdbc
+.project
+.settings
+.classpath
+bin
