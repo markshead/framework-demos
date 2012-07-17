@@ -1,4 +1,8 @@
 target/
+*.iml
+*.iws
+*.ipr
+atlassian-ide-plugin.xml
 *.jdbc
 .project
 .settings
