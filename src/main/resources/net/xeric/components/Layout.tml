@@ -52,6 +52,13 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
             </div>
             <!-- end content -->
             <br style="clear: both;"/>
+
+            <div class='source-code-viewer'>
+                <h3>Source Code</h3>
+                <div t:type='xeric/SourceCodeViewer'/>
+            </div>
+
+
         </div>
         <!-- end page -->
         <!-- start footer -->
