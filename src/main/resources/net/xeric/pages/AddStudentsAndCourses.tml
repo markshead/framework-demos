@@ -2,7 +2,8 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>Manage People and Courses</p>
+    <h2>Manage People and Courses</h2>
+    <hr/>
 
 	<h3>Add a Person:</h3>
 	<t:beaneditform t:id="addStudent" object="student"/>

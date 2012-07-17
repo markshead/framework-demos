@@ -2,8 +2,8 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>List Students and Courses</p>
-
+    <h1>List Students and Courses</h1>
+    <hr/>
 
 	
 	<h3>List People:</h3>
@@ -14,8 +14,11 @@
 			</li>
 		</ul>
 
+    <br/>
+    <br/>
 	<t:if test="studentToUpdate">
-		Manage ${studentToUpdate.firstName} Here.
+		<h3>Manage ${studentToUpdate.firstName} Here.</h3>
+        <hr/>
 		<t:form t:id="manageClasses">
 			<t:palette t:id="classPalette" t:selected="courses" t:model="courseModel" t:encoder="courseEncoder"/>
 			<t:submit t:id="updateClasses"/>

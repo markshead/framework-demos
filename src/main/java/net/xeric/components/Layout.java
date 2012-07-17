@@ -40,6 +40,10 @@ public class Layout {
         return new String[]{"ListStudentsAndCourses", "ManageEnrollment", "AddStudentsAndCourses"};
     }
 
+    public String getLinkClass(){
+        return pageName.equalsIgnoreCase(resources.getPageName()) ? "active" : "";
+    }
+
     public String getPrettyPageName() {
         return TapestryInternalUtils.toUserPresentable(pageName);
     }
