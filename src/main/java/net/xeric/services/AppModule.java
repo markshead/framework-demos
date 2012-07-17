@@ -112,8 +112,8 @@ public class AppModule {
 
                 unitInfo
                         .addProperty("javax.persistence.jdbc.driver", "org.h2.Driver")
-                        .addProperty("javax.persistence.jdbc.url", "jdbc:h2:tcp://localhost/mem::test;create=true;DB_CLOSE_ON_EXIT=FALSE")
-                        .addProperty("javax.persistence.jdbc.username", "sa")
+                        .addProperty("javax.persistence.jdbc.url", "jdbc:h2:tcp://localhost/mem:test;create=true;DB_CLOSE_ON_EXIT=FALSE")
+                        .addProperty("javax.persistence.jdbc.user", "sa")
                         .addProperty("javax.persistence.jdbc.password", "password")
                         .addProperty("eclipselink.ddl-generation", "create-tables")
                         .addProperty("eclipselink.logging.level", "fine");

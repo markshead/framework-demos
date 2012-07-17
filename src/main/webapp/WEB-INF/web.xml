@@ -5,6 +5,10 @@
 <web-app>
     <display-name>jpa-demo Tapestry 5 Application</display-name>
 
+    <listener>
+          <listener-class>org.h2.server.web.DbStarter</listener-class>
+      </listener>
+
     <context-param>
         <!-- The only significant configuration for Tapestry 5, this informs Tapestry
 of where to look for pages, components and mixins. -->
@@ -19,7 +23,7 @@ of where to look for pages, components and mixins. -->
     -->
     <context-param>
         <param-name>db.url</param-name>
-        <param-value>jdbc:h2:tcp://localhost/mem::test;create=true;create=true</param-value>
+        <param-value>jdbc:h2:tcp://localhost/mem:test;create=true;</param-value>
     </context-param>
     <context-param>
         <param-name>db.user</param-name>
@@ -64,6 +68,7 @@ of where to look for pages, components and mixins. -->
         <servlet-name>H2Console</servlet-name>
         <url-pattern>/console/*</url-pattern>
     </servlet-mapping>
+
 
 </web-app>
       
