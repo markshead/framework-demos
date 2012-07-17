@@ -45,7 +45,7 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"ListPeopleAndCourses", "ManageEnrollment", "PeopleCourses"};
+        return new String[]{"ListStudentsAndCourses", "ManageEnrollment", "AddStudentsAndCourses"};
     }
 
     public String getPrettyPageName(){
