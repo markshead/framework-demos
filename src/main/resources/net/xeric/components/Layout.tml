@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">jpa demo</a>
+                    <a class="brand" href="./">jpa demo</a>
 
                     <div class="nav-collapse">
                         <ul class="nav">
@@ -38,6 +38,9 @@
                                 <a t:type='PageLink' t:page='prop:pageName'>
                                     ${prettyPageName}
                                 </a>
+                            </li>
+                            <li>
+                            	<a href="console/">DB Console</a>
                             </li>
                         </ul>
                     </div>
