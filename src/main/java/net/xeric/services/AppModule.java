@@ -1,11 +1,5 @@
 package net.xeric.services;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
@@ -13,7 +7,6 @@ import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
-import org.apache.tapestry5.ioc.annotations.Startup;
 import org.apache.tapestry5.jpa.EntityManagerSource;
 import org.apache.tapestry5.jpa.PersistenceUnitConfigurer;
 import org.apache.tapestry5.jpa.TapestryPersistenceUnitInfo;
@@ -21,7 +14,6 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
-import org.h2.tools.Server;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -122,6 +114,7 @@ public class AppModule {
                         .addProperty("javax.persistence.jdbc.driver", "org.h2.Driver")
                         .addProperty("javax.persistence.jdbc.url", "jdbc:h2:mem:test")
                         .addProperty("javax.persistence.jdbc.username", "sa")
+                        .addProperty("javax.persistence.jdbc.username", "")
                         .addProperty("eclipselink.ddl-generation", "create-tables")
                         .addProperty("eclipselink.logging.level", "fine");
             }
