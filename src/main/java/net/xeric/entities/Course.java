@@ -22,7 +22,7 @@ public class Course {
     private String name;
 
     @ManyToMany(mappedBy = "enrolledCourses")
-    private Set<Student> peopleEnrolled = CollectionFactory.newSet();
+    private Set<Student> studentsEnrolled = CollectionFactory.newSet();
 
     public Long getId() {
         return id;
@@ -40,12 +40,12 @@ public class Course {
         this.name = name;
     }
 
-    public Set<Student> getPeopleEnrolled() {
-        return peopleEnrolled;
+    public Set<Student> getStudentsEnrolled() {
+        return studentsEnrolled;
     }
 
-    public void setPeopleEnrolled(Set<Student> studentsEnrolled) {
-        this.peopleEnrolled = studentsEnrolled;
+    public void setStudentsEnrolled(Set<Student> studentsEnrolled) {
+        this.studentsEnrolled = studentsEnrolled;
     }
 
     @Override

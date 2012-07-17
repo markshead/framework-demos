@@ -27,9 +27,8 @@ public class About
 	}
 	
 	public List<Student> getPeopleList() {
-		//return entityManager.createQuery("SELECT e FROM Person e").getResultList();
-		return entityManager.createQuery("SELECT e FROM Person e", Student.class).getResultList();
-		//return entityManager.f
+		return entityManager.createQuery("SELECT e FROM Student e", Student.class).getResultList();
+
 	}
 
 }

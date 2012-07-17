@@ -68,4 +68,9 @@ public class Student {
 	    public int hashCode() {
 	        return id != null ? id.hashCode() : 0;
 	    }
+
+	    public void enroll(Course course) {
+	        enrolledCourses.add(course);
+	        course.getStudentsEnrolled().add(this);
+	    }
 }
