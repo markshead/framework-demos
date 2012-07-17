@@ -1,6 +1,5 @@
 package net.xeric.components;
 
-import net.xeric.libs.tap5.sourcecode.annotations.ShowSourceCode;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.SymbolConstants;
@@ -11,16 +10,10 @@ import org.apache.tapestry5.internal.TapestryInternalUtils;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 
-/**
- * Layout component for pages of application jpa-demo.
- */
+/** Layout component for pages of application jpa-demo. */
 @Import(stylesheet = "context:layout/layout.css")
-@ShowSourceCode
-public class Layout
-{
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
+public class Layout {
+    /** The page title, for the <title> element and the <h1> element. */
     @Property
     @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
     private String title;
@@ -37,19 +30,17 @@ public class Layout
     private String appVersion;
 
 
-    public String getClassForPageName()
-    {
+    public String getClassForPageName() {
         return resources.getPageName().equalsIgnoreCase(pageName)
                 ? "current_page_item"
                 : null;
     }
 
-    public String[] getPageNames()
-    {
+    public String[] getPageNames() {
         return new String[]{"ListStudentsAndCourses", "ManageEnrollment", "AddStudentsAndCourses"};
     }
 
-    public String getPrettyPageName(){
+    public String getPrettyPageName() {
         return TapestryInternalUtils.toUserPresentable(pageName);
     }
 }
