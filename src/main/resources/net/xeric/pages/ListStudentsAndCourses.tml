@@ -8,7 +8,7 @@
     <h3>List Students:</h3>
     <ul>
         <li t:type="loop" t:source="allStudents" t:value="student">
-            ${student.firstName} ${student.firstName} (${student.enrolledCourses.size()})
+            ${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})
         </li>
     </ul>
     <br/>
