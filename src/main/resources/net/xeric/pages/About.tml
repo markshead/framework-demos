@@ -1,9 +1,0 @@
-<html t:type="layout" title="About JPA Demo App"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
-
-    <p>About very simple JPA application that demonstrates the use
-    of many to many relationships using Students and Courses ...</p>
-
-
-</html>

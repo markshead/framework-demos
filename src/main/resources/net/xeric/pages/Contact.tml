@@ -1,7 +1,0 @@
-<html t:type="layout" title="Contact Xeric Corporation"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
-
-    <p>Contact Xeric Corporation at <a href="http://www.xeric.net">www.xeric.net</a>.</p>
-
-</html>
