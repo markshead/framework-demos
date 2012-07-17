@@ -151,6 +151,12 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
             <id>apache-staging</id>
             <url>https://repository.apache.org/content/groups/staging/</url>
         </repository>
+        <repository>
+          <id>EclipseLink Repo</id>
+          <url>
+            http://download.eclipse.org/rt/eclipselink/maven.repo
+          </url>
+        </repository>
     </repositories>
 
     <properties>

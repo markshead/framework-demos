@@ -1,10 +1,15 @@
 package net.xeric.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.BindingConstants;
+import org.apache.tapestry5.Block;
+import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.internal.TapestryInternalUtils;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.ioc.annotations.Symbol;
 
 /**
  * Layout component for pages of application jpa-demo.
@@ -48,6 +53,10 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "About", "Contact"};
+        return new String[]{"ListPeopleAndCourses", "ManageEnrollment", "PeopleCourses"};
+    }
+
+    public String getPrettyPageName(){
+        return TapestryInternalUtils.toUserPresentable(pageName);
     }
 }

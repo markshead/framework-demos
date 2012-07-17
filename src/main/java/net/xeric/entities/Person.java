@@ -1,6 +1,7 @@
 package net.xeric.entities;
 
-import java.util.List;
+import org.apache.tapestry5.beaneditor.NonVisual;
+import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,42 +9,77 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
+import java.util.Set;
 
 @Entity
 public class Person {
-	private String firstName;
-	private String lastName;
-	@ManyToMany
-	private List<Course> enrolledCourses = CollectionFactory.newList();
-	@Id
-	@NonVisual
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private Long id;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public List<Course> getEnrolledCourses() {
-		return enrolledCourses;
-	}
-	public void setEnrolledCourses(List<Course> enrolledCourses) {
-		this.enrolledCourses = enrolledCourses;
-	}
+
+    @Id
+    @NonVisual
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String firstName;
+
+    private String lastName;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Course> enrolledCourses = CollectionFactory.newSet();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Set<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
+    public void setEnrolledCourses(Set<Course> enrolledCourses) {
+        this.enrolledCourses = enrolledCourses;
+    }
+
+    public void enroll(Course course) {
+        enrolledCourses.add(course);
+        course.getPeopleEnrolled().add(this);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (other == null || !(other instanceof Person)) {
+            return false;
+        }
+
+        Person person = (Person) other;
+
+        return !(id != null ? !id.equals(person.id) : person.id != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

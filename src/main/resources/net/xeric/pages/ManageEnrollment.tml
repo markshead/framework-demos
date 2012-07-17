@@ -17,7 +17,7 @@
 	<t:if test="personToUpdate">
 		Manage ${personToUpdate.firstName} Here.
 		<t:form t:id="manageClasses">
-			<t:palette t:id="classPalette" t:selected="personToUpdate.enrolledCourses" t:model="courseModel" t:encoder="courseEncoder"/>
+			<t:palette t:id="classPalette" t:selected="courses" t:model="courseModel" t:encoder="courseEncoder"/>
 			<t:submit t:id="updateClasses"/>
 		</t:form>
 	</t:if>
