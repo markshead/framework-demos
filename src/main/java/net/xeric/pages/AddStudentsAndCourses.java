@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@ShowSourceCode(additionalClasses = CourseEncoder.class)
+@ShowSourceCode
 public class AddStudentsAndCourses {
 	
 	@PersistenceContext
