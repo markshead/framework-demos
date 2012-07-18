@@ -5,15 +5,21 @@
     <h1>List Students and Courses</h1>
     <hr/>
 
-    <h3>List Students:</h3>
+    <h3>Students:</h3>
+    <t:if t:test="!allStudents">
+      No students have been added.
+    </t:if>
     <ul>
         <li t:type="loop" t:source="allStudents" t:value="student">
-            ${student.firstName} ${student.firstName} (${student.enrolledCourses.size()})
+            ${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})
         </li>
     </ul>
     <br/>
 
-    <h3>List Courses:</h3>
+    <h3>Courses:</h3>
+    <t:if t:test="!allStudents">
+      No courses have been added.
+    </t:if>
     <ul>
         <li t:type="loop" t:source="allCourses" t:value="course">
             ${course.name}(${course.studentsEnrolled.size()})

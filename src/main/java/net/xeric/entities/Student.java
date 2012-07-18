@@ -1,14 +1,16 @@
 package net.xeric.entities;
 
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import java.util.Set;
+
+import org.apache.tapestry5.beaneditor.NonVisual;
+import org.apache.tapestry5.beaneditor.Validate;
+import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
 
 @Entity
 public class Student {
@@ -17,8 +19,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Validate("required")
     private String firstName;
-
+    
+    @Validate("required")
     private String lastName;
 
     @ManyToMany

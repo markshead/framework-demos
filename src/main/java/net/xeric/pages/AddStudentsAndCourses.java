@@ -16,14 +16,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@ShowSourceCode(additionalClasses = CourseEncoder.class)
+@ShowSourceCode
 public class AddStudentsAndCourses {
 	
 	@PersistenceContext
 	EntityManager em;
-	
-	@Inject
-	SelectModelFactory selectModelFactory;
 	
 	@Property
 	private Student student; 
@@ -53,13 +50,6 @@ public class AddStudentsAndCourses {
 		return em.createQuery("SELECT e FROM Course e", Course.class).getResultList();
 
 	}
-	
-	public SelectModel getPersonModel() {
-		return selectModelFactory.create(getAllPeople(), "firstName");
-	}
-	
-	public StudentEncoder getPersonEncoder() {
-		return new StudentEncoder(em);
-	}
+
 
 }
