@@ -1,4 +1,4 @@
-<html t:type="layout" title="About jpa-demo"
+<html t:type="layout" title="Add Students And Courses"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
@@ -6,9 +6,9 @@
     <hr/>
 
 	<h3>Add a Person:</h3>
-	<t:beaneditform t:id="addStudent" object="student"/>
+	<t:beaneditform t:id="addStudent" t:object="student"/>
 	
 	<h3>Add a course:</h3>
-	<t:beaneditform t:id="addCourse" object="course"/>
+	<t:beaneditform t:id="addCourse" t:object="course"/>
 	
 </html>

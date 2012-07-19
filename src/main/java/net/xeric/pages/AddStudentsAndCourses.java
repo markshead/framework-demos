@@ -1,20 +1,17 @@
 package net.xeric.pages;
 
-import net.xeric.encoders.CourseEncoder;
-import net.xeric.encoders.StudentEncoder;
-import net.xeric.entities.Course;
-import net.xeric.entities.Student;
-import net.xeric.libs.tap5.sourcecode.annotations.ShowSourceCode;
-import org.apache.tapestry5.SelectModel;
-import org.apache.tapestry5.annotations.Persist;
-import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.jpa.annotations.CommitAfter;
-import org.apache.tapestry5.services.SelectModelFactory;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
+
+import net.xeric.entities.Course;
+import net.xeric.entities.Student;
+import net.xeric.libs.tap5.sourcecode.annotations.ShowSourceCode;
+
+import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.jpa.annotations.CommitAfter;
 
 @ShowSourceCode
 public class AddStudentsAndCourses {

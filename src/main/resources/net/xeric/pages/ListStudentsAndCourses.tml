@@ -1,4 +1,4 @@
-<html t:type="layout" title="About jpa-demo"
+<html t:type="layout" title="List Students And Courses"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
         >
 
@@ -6,23 +6,19 @@
     <hr/>
 
     <h3>Students:</h3>
-    <t:if t:test="!allStudents">
-      No students have been added.
-    </t:if>
+    
     <ul>
-        <li t:type="loop" t:source="allStudents" t:value="student">
-            ${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})
-        </li>
+        <t:loop t:source="allStudents" t:value="student">
+            <li>${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})</li>
+        </t:loop>
     </ul>
     <br/>
 
     <h3>Courses:</h3>
-    <t:if t:test="!allStudents">
-      No courses have been added.
-    </t:if>
+
     <ul>
-        <li t:type="loop" t:source="allCourses" t:value="course">
-            ${course.name}(${course.studentsEnrolled.size()})
-        </li>
+        <t:loop t:source="allCourses" t:value="course">
+            <li>${course.name}(${course.studentsEnrolled.size()})</li>
+        </t:loop>
     </ul>
 </html>

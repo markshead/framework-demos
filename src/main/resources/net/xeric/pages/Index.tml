@@ -6,10 +6,9 @@
     <p>${message:greeting}</p>
     
     <ul>
-    	<li><a href="AddStudentsAndCourses">Add Students and Courses</a></li>
-    	<li><a href="ListStudentsAndCourses">List Students and Courses</a></li>
-    	<li><a href="ManageEnrollment">Enroll Students In Courses</a></li>
-    	
+    	<li><a t:type="PageLink" t:page="AddStudentsAndCourses">Add Students and Courses</a></li>
+    	<li><a t:type="PageLink" t:page="ListStudentsAndCourses">List Students and Courses</a></li>
+    	<li><a t:type="PageLink" t:page="ManageEnrollment">Enroll Students In Courses</a></li>   	
     </ul>
 
 
