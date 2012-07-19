@@ -1,7 +1,5 @@
 package net.xeric.pages;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -37,15 +35,6 @@ public class AddStudentsAndCourses {
 	@CommitAfter
 	public void onSubmitFromAddCourse() {
 		em.persist(course);
-	}
-	
-	public List<Student> getAllPeople() {
-		return em.createQuery("SELECT e FROM Person e", Student.class).getResultList();
-	}
-	
-	public List<Course> getAllCourses() {
-		return em.createQuery("SELECT e FROM Course e", Course.class).getResultList();
-
 	}
 
 
