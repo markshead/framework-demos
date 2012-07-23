@@ -37,7 +37,11 @@ public class Layout {
     }
 
     public String[] getPageNames() {
-        return new String[]{"ListStudentsAndCourses", "ManageEnrollment", "AddStudentsAndCourses"};
+        return new String[]{"AddStudentsAndCourses", "ManageEnrollment", "ListStudentsAndCourses"};
+    }
+
+    public String getLinkClass(){
+        return pageName.equalsIgnoreCase(resources.getPageName()) ? "active" : "";
     }
 
     public String getPrettyPageName() {

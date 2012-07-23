@@ -23,7 +23,7 @@ of where to look for pages, components and mixins. -->
     -->
     <context-param>
         <param-name>db.url</param-name>
-        <param-value>jdbc:h2:tcp://localhost/mem:test;create=true;</param-value>
+        <param-value>jdbc:h2:tcp://localhost/mem:test;create=true;DB_CLOSE_ON_EXIT=FALSE</param-value>
     </context-param>
     <context-param>
         <param-name>db.user</param-name>
