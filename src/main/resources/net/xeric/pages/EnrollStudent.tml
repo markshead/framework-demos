@@ -1,0 +1,33 @@
+<html t:type="layout" title="${student.firstName}'s Classes"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+        >
+
+    <h1>${student.firstName} ${student.lastName}'s Classes</h1>
+    <hr/>
+
+    <h2>Enrolled:</h2>
+
+
+    <ul class="unstyled">
+        <li t:type="loop" t:source="student.enrolledCourses" t:value="course">
+            <t:eventlink t:event="removeCourse" t:context="course">
+                <i class="icon-minus-sign"></i>
+            </t:eventlink>
+            ${course.name}
+
+        </li>
+    </ul>
+
+    <h2>Available:</h2>
+
+    <ul class="unstyled">
+        <li t:type="loop" t:source="availableCourses" t:value="course">
+            <t:eventlink t:event="addCourse" t:context="course">
+                <i class="icon-plus-sign"></i>
+            </t:eventlink>
+            ${course.name}
+        </li>
+    </ul>
+
+
+</html>

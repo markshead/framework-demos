@@ -1,16 +1,11 @@
 package net.xeric.entities;
 
-import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.beaneditor.Validate;
 import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Student {

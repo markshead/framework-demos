@@ -1,17 +1,17 @@
 <html t:type="layout" title="JPA Demo Home"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+    <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
     <p>${message:greeting}</p>
-    
+
     <ul>
-    	<li><a t:type="PageLink" t:page="AddStudentsAndCourses">Add Students and Courses</a></li>
-    	<li><a t:type="PageLink" t:page="ListStudentsAndCourses">List Students and Courses</a></li>
-    	<li><a t:type="PageLink" t:page="ManageEnrollment">Enroll Students In Courses</a></li>   	
+        <li>
+            <a t:type="PageLink" t:page="AddStudentsAndCourses">Add Students and Courses</a>
+        </li>
+        <li>
+            <a t:type="PageLink" t:page="ListStudentsAndCourses">List Students and Courses</a>
+        </li>
     </ul>
-
-
-
 
 </html>

@@ -1,15 +1,19 @@
 <html t:type="layout" title="List Students And Courses"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-        >
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
     <h1>List Students and Courses</h1>
     <hr/>
 
     <h3>Students:</h3>
-    
+
     <ul>
         <t:loop t:source="allStudents" t:value="student">
-            <li>${student.firstName} ${student.lastName} (${student.enrolledCourses.size()})</li>
+            <li>${student.firstName} ${student.lastName}
+                (${student.enrolledCourses.size()})
+                <t:pagelink t:page="enrollstudent" t:context="student">
+                    <i class="icon-edit"></i>
+                </t:pagelink>
+            </li>
         </t:loop>
     </ul>
     <br/>

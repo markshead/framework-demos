@@ -5,10 +5,10 @@
     <h2>Add Students and Courses</h2>
     <hr/>
 
-	<h3>Add a Person:</h3>
-	<t:beaneditform t:id="addStudent" t:object="student"/>
-	
-	<h3>Add a course:</h3>
-	<t:beaneditform t:id="addCourse" t:object="course"/>
-	
+    <h3>Add a Person:</h3>
+    <t:beaneditform t:id="addStudent" t:object="student"/>
+
+    <h3>Add a course:</h3>
+    <t:beaneditform t:id="addCourse" t:object="course"/>
+
 </html>
