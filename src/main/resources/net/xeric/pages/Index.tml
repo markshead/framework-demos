@@ -5,6 +5,8 @@
 
     <p>${message:greeting}</p>
 
+
+
     <ul>
         <li>
             <a t:type="PageLink" t:page="AddStudentsAndCourses">Add Students and Courses</a>
