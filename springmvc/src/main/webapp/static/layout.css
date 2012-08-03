@@ -1,0 +1,17 @@
+body div.t-beaneditor {
+    background-color: transparent;
+    border: 0
+}
+
+body div.t-beaneditor input[type='submit'] {
+    margin-left: 250px
+}
+
+#sourceAccordion {
+    margin-top: 30px
+}
+
+body div.t-palette-title {
+    background-color: #e6633a;
+    padding: 3px
+}
