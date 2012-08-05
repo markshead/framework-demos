@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ taglib prefix="tags" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
@@ -14,14 +14,22 @@
         <h2>Students</h2>
         <ol>
             <c:forEach var='student' items='${students}'>
-                <li>${student.firstName} ${student.lastName} (${fn:length(student.enrolledCourses)})</li>
+                <spring:url value='/enrollment/${student.id}' var='enrollLink'/>
+                <li>${student.firstName} ${student.lastName} (${fn:length(student.enrolledCourses)})
+                    <a href="${enrollLink}">
+                        <i class='icon-edit'></i>
+                    </a>
+
+                </li>
             </c:forEach>
         </ol>
 
         <h2>Courses</h2>
         <ol>
             <c:forEach var='course' items='${courses}'>
-                <li>${course.name}</li>
+                <li>
+                        ${course.name}
+                </li>
             </c:forEach>
         </ol>
 

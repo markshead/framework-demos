@@ -10,8 +10,8 @@
         <jsp:include page='../includes/header.jsp'/>
 
         <form:form class='form-horizontal' action="student" commandName='student'>
-            <h1>Add Student</h1>
-            <hr/>
+            <h3>Add Student: </h3>
+            <br/>
             <form:errors/>
             <div class='control-group'>
                 <form:label class='control-label' path="firstName">First Name</form:label>
@@ -36,8 +36,8 @@
         </form:form>
 
         <form:form class='form-horizontal' action='course' commandName='course'>
-            <h1>Add Course</h1>
-            <hr/>
+            <h3>Add Course: </h3>
+            <br/>
             <form:errors/>
             <div class='control-group'>
                 <form:label class='control-label' path="name">Course Name</form:label>

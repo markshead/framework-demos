@@ -25,12 +25,6 @@
                         </a>
                     </li>
 
-                    <li class=''>
-                        <a href="<spring:url value='/manage-enrollments/'/>">
-                            Manage Enrollments
-                        </a>
-                    </li>
-
                     <li><a shape="rect" href="<spring:url value='/console/'/>">
                         DB Console
                     </a></li>
