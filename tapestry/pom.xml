@@ -1,226 +1,71 @@
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>net.xeric</groupId>
-    <artifactId>jpa-demo</artifactId>
-    <version>1.0</version>
-    <packaging>war</packaging>
-    <name>jpa-demo Tapestry 5 Application</name>
-    <dependencies>
-        <!-- Too set up an application with a database, change the artifactId below to
-             tapestry-hibernate, and add a dependency on your JDBC driver. You'll also
-             need to add Hibernate configuration files, such as hibernate.cfg.xml. -->
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-core</artifactId>
-            <version>${tapestry-release-version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-jpa</artifactId>
-            <version>${tapestry-release-version}</version>
-        </dependency>
-
-        <!-- This adds automatic compression of JavaScript and CSS when in production mode. -->
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-yuicompressor</artifactId>
-            <version>${tapestry-release-version}</version>
-        </dependency>
-
-        <!-- Uncomment this to add support for file uploads:
-
-         <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-upload</artifactId>
-            <version>${tapestry-release-version}</version>
-        </dependency>
-
-        -->
-
-        <!-- A dependency on either JUnit or TestNG is required, or the surefire plugin (which runs the tests)
-will fail, preventing Maven from packaging the WAR. Tapestry includes a large number
-of testing facilities designed for use with TestNG (http://testng.org/), so it's recommended. -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng-release-version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-            <version>${easymock-release-version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-test</artifactId>
-            <version>${tapestry-release-version}</version>
-            <scope>test</scope>
-        </dependency>
-
-
-        <!-- Provided by the servlet container, but sometimes referenced in the application
-       code. -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servlet-api-release-version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Provide dependency to the Tapestry javadoc taglet which replaces the Maven component report -->
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-javadoc</artifactId>
-            <version>${tapestry-release-version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.167</version>
-        </dependency>
-        <dependency>
-            <groupId>net.xeric.libs.tap5</groupId>
-            <artifactId>tap5-sourcecode</artifactId>
-            <version>1.2-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <finalName>jpa-demo</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                    <optimize>true</optimize>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.7.2</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <tapestry.execution-mode>Qa</tapestry.execution-mode>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-
-            <!-- Run the application using "mvn jetty:run" -->
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.16</version>
-                <configuration>
-                    <!-- Log to the console. -->
-                    <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
-                        <!-- This doesn't do anything for Jetty, but is a workaround for a Maven bug
-                             that prevents the requestLog from being set. -->
-                        <append>true</append>
-                    </requestLog>
-                    <systemProperties>
-                        <systemProperty>
-                            <name>tapestry.execution-mode</name>
-                            <value>development</value>
-                        </systemProperty>
-                    </systemProperties>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.0.5</version>
-                <configuration>
-
-                    <container>
-                        <containerId>tomcat6x</containerId>
-                        <type>remote</type>
-                    </container>
-
-                    <configuration>
-                        <type>runtime</type>
-                        <properties>
-                            <cargo.hostname>apps.xeric.net</cargo.hostname>
-                            <cargo.servlet.port>80</cargo.servlet.port>
-                            <cargo.remote.username>tomcat</cargo.remote.username>
-                            <cargo.remote.password>2468wryi</cargo.remote.password>
-                        </properties>
-                    </configuration>
-
-                    <deployer>
-                        <type>remote</type>
-                        <deployables>
-                            <deployable>
-                                <groupId>net.xeric</groupId>
-                                <artifactId>jpa-demo</artifactId>
-                                <type>war</type>
-                                <properties>
-                                    <context>/tapestry</context>
-                                </properties>
-                            </deployable>
-                        </deployables>
-                    </deployer>
-                </configuration>
-            </plugin>
-        </plugins>
-
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.java</include>
-                </includes>
-            </resource>
-        </resources>
-
-    </build>
-
-    <reporting/>
-
-    <repositories>
-
-        <!-- This repository is only needed when the Tapestry version is a preview release, rather
-             than a final release. -->
-        <repository>
-            <id>apache-staging</id>
-            <url>https://repository.apache.org/content/groups/staging/</url>
-        </repository>
-        <repository>
-            <id>EclipseLink Repo</id>
-            <url>
-                http://download.eclipse.org/rt/eclipselink/maven.repo
-            </url>
-        </repository>
-        <repository>
-            <id>xeric</id>
-            <url>http://apps.xeric.net/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-
-    <properties>
-        <tapestry-release-version>5.3.3</tapestry-release-version>
-        <servlet-api-release-version>2.5</servlet-api-release-version>
-        <testng-release-version>5.14.9</testng-release-version>
-        <easymock-release-version>3.0</easymock-release-version>
-    </properties>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.xeric.jpademo</groupId>
+  <artifactId>tapestry</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.9</version>
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>Eclipse Link Repository</id>
+      <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+    </repository>
+    <repository>
+      <id>Xeric</id>
+      <url>http://apps.xeric.net/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>eclipselink</artifactId>
+      <version>2.3.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tapestry</groupId>
+      <artifactId>tapestry-jpa</artifactId>
+      <version>5.3.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.xeric.libs.tap5</groupId>
+      <artifactId>tap5-sourcecode</artifactId>
+      <version>1.2-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tapestry</groupId>
+      <artifactId>tapestry-core</artifactId>
+      <version>5.3.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.3.167</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>1.0.0.GA</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>

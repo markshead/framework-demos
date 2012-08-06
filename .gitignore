@@ -1,5 +1,8 @@
 springmvc/gradle.properties
 target/
+*/build/
+*/.gradle
+.gradle
 *.iml
 *.iws
 *.ipr
