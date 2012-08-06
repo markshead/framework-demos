@@ -1,7 +1,7 @@
-apply plugin : "java"
-apply plugin : "maven"
-apply plugin : "idea"
-apply plugin : "jetty"
+apply plugin: "java"
+apply plugin: "maven"
+apply plugin: "idea"
+apply plugin: "jetty"
 apply plugin: "cargo"
 
 group = "net.xeric.springmvc"
@@ -9,9 +9,9 @@ version = "1.0-SNAPSHOT"
 description = "Spring MVC based JPA application"
 
 project.ext.versions = [
-    spring : "3.1.2.RELEASE",
-    slf4j : "1.6.1",
-    log4j : "1.2.16"
+        spring: "3.1.2.RELEASE",
+        slf4j: "1.6.1",
+        log4j: "1.2.16"
 ]
 
 configurations {
@@ -22,8 +22,8 @@ sourceSets {
 }
 
 dependencies {
-    compile("org.springframework:spring-context:$versions.spring"){
-        exclude module:"commons-logging"
+    compile("org.springframework:spring-context:$versions.spring") {
+        exclude module: "commons-logging"
     }
 
     compile "org.springframework:spring-webmvc:$versions.spring"
@@ -52,12 +52,12 @@ dependencies {
     def cargoVersion = '1.2.2'
     cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion", "org.codehaus.cargo:cargo-ant:$cargoVersion"
 }
-    
+
 repositories {
-    mavenRepo url:"https://repository.jboss.org/nexus/content/repositories/releases"
+    mavenRepo url: "https://repository.jboss.org/nexus/content/repositories/releases"
     mavenCentral();
 }
-     
+
 idea {
     project {
         jdkName = "1.6"
@@ -84,6 +84,7 @@ buildscript {
         classpath 'bmuschko:gradle-cargo-plugin:0.5.4'
     }
 }
+
 cargo {
     containerId = 'tomcat6x'
     port = 80
@@ -98,3 +99,24 @@ cargo {
     }
 
 }
+
+task writePom << {
+    pom {
+        project {
+
+            build {
+                plugins {
+
+                    plugin {
+                        groupId = "org.mortbay.jetty"
+                        artifactId = "maven-jetty-plugin"
+                        version = "6.1.9"
+                    }
+
+                }
+            }
+
+        }
+    }.writeTo("pom.xml")
+}
+
