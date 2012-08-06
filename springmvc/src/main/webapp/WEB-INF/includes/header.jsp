@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a shape="rect" href="" class="brand">jpa demo</a>
+            <a href="<spring:url value='/'/>" class="brand">spring-mvc demo</a>
 
             <div class="nav-collapse">
                 <ul class="nav">

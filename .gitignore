@@ -1,3 +1,4 @@
+springmvc/gradle.properties
 target/
 *.iml
 *.iws

@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="./">jpa demo</a>
+                    <a class="brand" t:type='PageLink' t:page='Index'>Tapestry demo</a>
 
                     <div class="nav-collapse">
                         <ul class="nav">
