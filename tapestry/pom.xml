@@ -142,6 +142,42 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
                     </systemProperties>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.0.5</version>
+                <configuration>
+
+                    <container>
+                        <containerId>tomcat6x</containerId>
+                        <type>remote</type>
+                    </container>
+
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.hostname>apps.xeric.net</cargo.hostname>
+                            <cargo.servlet.port>80</cargo.servlet.port>
+                            <cargo.remote.username>tomcat</cargo.remote.username>
+                            <cargo.remote.password>2468wryi</cargo.remote.password>
+                        </properties>
+                    </configuration>
+
+                    <deployer>
+                        <type>remote</type>
+                        <deployables>
+                            <deployable>
+                                <groupId>net.xeric</groupId>
+                                <artifactId>jpa-demo</artifactId>
+                                <type>war</type>
+                                <properties>
+                                    <context>/tapestry</context>
+                                </properties>
+                            </deployable>
+                        </deployables>
+                    </deployer>
+                </configuration>
+            </plugin>
         </plugins>
 
         <resources>
